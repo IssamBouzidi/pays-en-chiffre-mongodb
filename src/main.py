@@ -10,6 +10,7 @@ from bson import ObjectId
 from utils import Utils
 from database import Database
 
+
 app = Flask(__name__) 
 
 @app.route('/countries/all', methods=['GET'])
@@ -100,7 +101,6 @@ def add_new_country(country_name):
     # get and return the added country
     added_country = countries.find_one({"_id":ObjectId(country_id)}, {"_id": 0})
     return added_country
-    
 
 
 @app.route('/countries/by_tranche', methods=['GET'])
@@ -135,4 +135,4 @@ def get_countries_by_tranche():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

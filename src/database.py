@@ -1,5 +1,8 @@
 from flask_pymongo import PyMongo
 from flask import Flask
+import os
+from config import Database as db_config
+
 
 class Database:
     __instance = None
@@ -19,4 +22,4 @@ class Database:
         if Database.__instance != None:
             raise Exception("This class is a singleton!")
         else:
-            Database.__instance = "mongodb://ubtwwkvidcglbysffkxi:tNzPkPdRp6PGv6HKDcHm@bqw1nnfvu8a3jff-mongodb.services.clever-cloud.com:27017/bqw1nnfvu8a3jff"
+            Database.__instance = db_config.MONGODB_ADDON_URI
